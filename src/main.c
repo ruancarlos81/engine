@@ -1,5 +1,6 @@
 #include "core/engine.h"
 #include "platform/platform.h"
+#include "raylib.h"
 
 int main(void)
 {
@@ -14,7 +15,19 @@ int main(void)
 
   while (!Platform_ShouldClose())
   {
+    if (IsKeyPressed(KEY_F5))
+      Engine_SetMode(ENGINE_MODE_PLAY);
+
+    if (IsKeyPressed(KEY_F6))
+      Engine_SetMode(ENGINE_MODE_PAUSE);
+
     Engine_BeginFrame();
+
+    DrawText(
+        Engine_GetMode() == ENGINE_MODE_PLAY ? "PLAY" : Engine_GetMode() == ENGINE_MODE_PAUSE ? "PAUSE"
+                                                                                              : "EDITOR",
+        20, 20, 20, GREEN);
+
     Engine_EndFrame();
   }
 

@@ -3,6 +3,14 @@
 
 #include <stdbool.h>
 
+typedef enum EngineMode
+{
+  ENGINE_MODE_EDITOR = 0,
+  ENGINE_MODE_PLAY,
+  ENGINE_MODE_PAUSE,
+  ENGINE_MODE_STEP
+} EngineMode;
+
 typedef struct EngineConfig
 {
   int window_width;
@@ -18,5 +26,8 @@ void Engine_BeginFrame(void);
 void Engine_EndFrame(void);
 
 float Engine_GetDeltaTime(void);
+
+EngineMode Engine_GetMode(void);
+void Engine_SetMode(EngineMode mode);
 
 #endif
