@@ -8,9 +8,9 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 find_package(raylib REQUIRED)
 
 add_executable(engine
-  src/main.c
-  src/core/engine.c
-  src/plataform/plataform.c  
+    src/main.c
+    src/core/engine.c
+    src/platform/platform.c
 )
 
 target_include_directories(engine PRIVATE src)
